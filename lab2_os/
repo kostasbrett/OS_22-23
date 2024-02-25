@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <stdbool.h>
+#include <signal.h>
+#include <ctype.h>
+
+//Elegxos orthothtas orismatwn
+#define STREQUAL(x, y) (strncmp((x), (y), strlen(y)) == 0)
+
+int main(int argc, char **argv) {
+
+	if (argc != 2){
+		fprintf(stderr, "Usage: ./a.out gates_state\n");
+		return 1;
+	}
+
+	if (STREQUAL(argv[1], "--help")){
+		printf("Usage: ./a.out gates_state\n");
+		return 0;
+	}
+
+	for (int i=0; i < strlen(argv[1]); i++){
+		if (isalpha(argv[i]) != 0){
+
+		//	if (argv[1][i] == "t" || argv[1][i] == "f" || argv[1][i] == "T" || argv[1][i] == "F"){
+			//	printf("Works\n");
+			
+
+
+			if(strcmp( argv[i][1], "t" ) == 0 || strcmp( argv[i][1], "f" ) == 0 || strcmp( argv[i][1], "T") == 0 || strcmp( argv[i][1], "F") == 0)
+				printf("works\n");
+		//		fprintf(stderr, "Declare the state of the gates only using 't' and 'f'\n");
+			else 
+				fprintf(stderr, "Declare the state of the gates using only 't' and 'f'\n");
+
+
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
